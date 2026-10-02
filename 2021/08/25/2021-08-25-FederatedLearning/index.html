@@ -92,7 +92,7 @@
 <meta name="description" content="在一些对用户隐私数据敏感的行业，用户样本数据和用户特征均有限的情况下，如何在保证数据安全的前提下，建立机器学习模型，对用户转化率进行预估？通常用到的技术就是联邦学习、数据联合建模等。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于联邦学习的用户深度转化率预估">
-<meta property="og:url" content="http://www.dianacody.com/2021/03/10/2021-03-10-FederatedLearning/index.html">
+<meta property="og:url" content="http://www.dianacody.com/2021/08/25/2021-08-25-FederatedLearning/index.html">
 <meta property="og:site_name" content="DianaCody">
 <meta property="og:description" content="在一些对用户隐私数据敏感的行业，用户样本数据和用户特征均有限的情况下，如何在保证数据安全的前提下，建立机器学习模型，对用户转化率进行预估？通常用到的技术就是联邦学习、数据联合建模等。">
 <meta property="og:image" content="http://www.dianacody.com/resources/fl-architecture.jpg">
@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://www.dianacody.com/resources/fl-dnn.jpg">
 <meta property="og:image" content="http://www.dianacody.com/resources/fl-forward-propagation.jpg">
 <meta property="og:image" content="http://www.dianacody.com/resources/fl-back-propagation.jpg">
-<meta property="og:updated_time" content="2021-08-23T01:33:27.000Z">
+<meta property="og:updated_time" content="2026-10-02T06:38:33.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于联邦学习的用户深度转化率预估">
 <meta name="twitter:description" content="在一些对用户隐私数据敏感的行业，用户样本数据和用户特征均有限的情况下，如何在保证数据安全的前提下，建立机器学习模型，对用户转化率进行预估？通常用到的技术就是联邦学习、数据联合建模等。">
@@ -134,7 +134,7 @@
 
 
 
-  <link rel="canonical" href="http://www.dianacody.com/2021/03/10/2021-03-10-FederatedLearning/"/>
+  <link rel="canonical" href="http://www.dianacody.com/2021/08/25/2021-08-25-FederatedLearning/"/>
 
 
 
@@ -311,7 +311,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.dianacody.com/2021/03/10/2021-03-10-FederatedLearning/">
+    <link itemprop="mainEntityOfPage" href="http://www.dianacody.com/2021/08/25/2021-08-25-FederatedLearning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="DianaCody">
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-10T00:00:00+08:00">
-                2021-03-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-08-25T00:00:00+08:00">
+                2021-08-25
               </time>
             
 
@@ -509,6 +509,7 @@
 <script type="math/tex; mode=display">eCPM = oBid * pCTR * pCVR * f(private\_deep\_cvr)</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其中，$eCPM$为每千次展示获得广告收入，该指标以衡量广告投放计费效果；$oBid$为广告转化出价；$pCTR$为预估点击率；$pCVR$为预估转化率；<script type="math/tex">private\_deep\_cvr</script>为模型输出结果即预估深度转化率；$f(*)$为扰动函数。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在线实验评估标准为：正价系统课成交数(deep_convert)提高、正价系统课成交率(deep_cvr)提高、信息投放方的投入产出比(ROI)提高。通过动态因子调整正价系统课的价格范围，达到整体最优化。</p>
 <h5 id="三、小结"><a href="#三、小结" class="headerlink" title="三、小结"></a>三、小结</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;相比现有技术，新的学习算法提出的方案：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.采用分布式联邦训练和深度模型，得到用户深度转化率的评估，同时在训练过程中数据加密传输，有效防止用户敏感数据泄露，保证数据的安全性。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.将分布式模型训练分层拆分，单独对交互模型层的参数进行优化，其余层的模型具有灵活可扩展性，框架结构可复用以便于多次实验迭代。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.对梯度计算进行优化，小批量进行梯度更新，减小网络通信传输开销，加快分布式训练收敛速度。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.投放定价公式用模型训练的private_deep_cvr权重因子修正，动态调节价格、动态修正eCPM数值，多次实验表明能带来较好的优化效果。</p>
 <h5 id="四、名词解释"><a href="#四、名词解释" class="headerlink" title="四、名词解释"></a>四、名词解释</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.<strong>联邦学习(Federated Learning)</strong>：全称”<strong>安全联合传输学习</strong>“(<strong>Secure Federated Transfer Learning</strong>)，实质是一种加密的分布式机器学习技术，参与各方可以在不披露底层数据和底层数据的加密(混淆)形态的前提下共建模型，主要应用于对用户隐私数据敏感的场景。模型训练过程中，数据加密传输，特征和样本均在加密后拼接，然后在公有云上训练和预测，得到预测结果数据，解密后返回给各方，训练过程完全透明。主要用于解决行业间联合建模的样本重叠少、特征重叠少、两者均重叠少等问题。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这种技术的参与各方可以在不披露底层数据和底层数据的加密(混淆)形态的前提下共建模型。主要应用在金融领域的风控模型、用户信用评级模型，金融科技公司作为数据服务商，和第三方公司如银行/证券/保险/券商等合作数据建模。除了金融，目前在电商/教育/电信等对用户隐私数据敏感的行业也有应用。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.<strong>PSI数据求交</strong>(<strong>Private Set Intersection</strong>，隐私保护集合交集)：多方数据求交集，找出共同样本，然后数据在各自的第三方云上完成加密，加密之后用于模型训练。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.<strong>同态加密</strong>：一种密码学技术，同态加密后的数据经过模型训练得到结果再解密，和用同一种方式经过非加密模型训练得到的结果相同。</p>
+<p>(2021-03-10)</p>
 
       
     </div>
@@ -555,8 +556,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/12/20/2020-12-20-TextMining/" rel="next" title="基于文本挖掘的用户转化率预估">
-                <i class="fa fa-chevron-left"></i> 基于文本挖掘的用户转化率预估
+              <a href="/2021/04/02/2021-04-02-FissionPropagation/" rel="next" title="裂变传播网络中关键用户识别算法">
+                <i class="fa fa-chevron-left"></i> 裂变传播网络中关键用户识别算法
               </a>
             
           </div>
@@ -565,8 +566,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/04/02/2021-04-02-FissionPropagation/" rel="prev" title="裂变传播网络中关键用户识别算法">
-                裂变传播网络中关键用户识别算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2022/10/09/2022-10-09-TBB/" rel="prev" title="TBB并行加速优化Slam计算框架">
+                TBB并行加速优化Slam计算框架 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
